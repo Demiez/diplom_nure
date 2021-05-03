@@ -21,13 +21,13 @@ import theme from './../client/assets/styles/theme';
 //кінець
 
 //!!! закоментити перед білдом в продакшен
-import devBundle from './devBundle';
+// import devBundle from './devBundle';
 
 const CURRENT_WORKING_DIR = process.cwd();
 const app = express();
 
 //!!! закоментити перед білдом в продакшен
-devBundle.compile(app);
+// devBundle.compile(app);
 
 // парсинг body params та додавання їх до req.body
 app.use(bodyParser.json());
