@@ -258,7 +258,7 @@ const parseIncommingData = (fields) => {
 };
 
 const prepareBriefPatientData = (patientResult) => {
-  return `ЕК:${patientResult.eCard}; Д:${patientResult.diagnosis}; PS:${patientResult.pulse}-AD:${patientResult.bloodPressure}-T:${patientResult.temperature}-SAT:${patientResult.saturation}`;
+  return `ЕМК:${patientResult.eCard}; Д:${patientResult.diagnosis}; PS:${patientResult.pulse}-AD:${patientResult.bloodPressure}-T:${patientResult.temperature}-SAT:${patientResult.saturation}`;
 };
 
 const populatePatientsData = async (records) => {
