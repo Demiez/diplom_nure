@@ -26,3 +26,7 @@
 1. Ім'я: Cluster-Diplom-Nure
 2. Локація: AWS / N. Virginia (us-east-1)
 3. Тип: Replica Set - 3 nodes
+
+##### Хероку деплой та хостінг
+
+Відкрити [СЕМЗ ЛІКАР+](https://petrenko-likar-plus.herokuapp.com/) в браузері
