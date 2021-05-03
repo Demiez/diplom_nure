@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require('path'),
+  HtmlWebpackPlugin = require('html-webpack-plugin');
 const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
@@ -31,6 +32,13 @@ const config = {
     extensions: ['.js', '.jsx', '.json'],
   },
   stats: 'errors-only',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'template.js',
+      inject: 'head',
+      favicon: './client/assets/images/favicon.png',
+    }),
+  ],
 };
 
 module.exports = config;
