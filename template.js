@@ -10,7 +10,7 @@ export default ({ markup, css }) => {
           <title>ЛІКАР+ - Районна лікарня №1</title>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400">
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-          <link rel="shortcut icon" href="/dist/favicon.png">
+          <link rel="shortcut icon" href="/dist/favicon.png?v=2">
           <style>
               a{
                 text-decoration: none
