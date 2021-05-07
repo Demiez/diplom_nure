@@ -270,10 +270,10 @@ const managePatientData = async (patientData) => {
   let patient = await Patient.findOne({ eCard: patientData.eCard });
 
   if (patient) {
-    patient = extend(patient, incomingPatientData);
+    patient = extend(patient, patientData);
     patient.updated = Date.now();
   } else {
-    patient = new Patient(incomingPatientData);
+    patient = new Patient(patientData);
   }
 
   return await patient.save();
