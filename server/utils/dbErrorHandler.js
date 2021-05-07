@@ -1,10 +1,17 @@
 'use strict';
+import winston, { error } from 'winston';
+
+const logger = winston.createLogger({
+  transports: [new winston.transports.Console()],
+});
 
 /**
  * Отримаємо ім'я унікального поля
  */
 const getUniqueErrorMessage = (err) => {
   let output;
+
+  logger.info(err);
 
   try {
     let fieldName = err.message
