@@ -21,14 +21,7 @@ const createRecord = (req, res, next) => {
       fields
     );
 
-    let patient = await Patient.findOne({ eCard: incomingPatientData.eCard });
-
-    if (patient) {
-      patient = extend(patient, incomingPatientData);
-      patient.updated = Date.now();
-    } else {
-      patient = new Patient(incomingPatientData);
-    }
+    const patient = await managePatientData(incomingPatientData);
 
     const record = new Record(incomingRecordData);
 
@@ -40,12 +33,9 @@ const createRecord = (req, res, next) => {
       record.photo.contentType = files.photo.type;
     }
     try {
-      const [recordResult, patientResult] = await Promise.all([
-        record.save(),
-        patient.save(),
-      ]);
+      const recordResult = await record.save();
 
-      recordResult.patientBrief = prepareBriefPatientData(patientResult);
+      recordResult.patientBrief = prepareBriefPatientData(patient);
 
       res.json(recordResult);
     } catch (err) {
@@ -274,6 +264,19 @@ const populatePatientsData = async (records) => {
 
     return record;
   });
+};
+
+const managePatientData = async (patientData) => {
+  let patient = await Patient.findOne({ eCard: patientData.eCard });
+
+  if (patient) {
+    patient = extend(patient, incomingPatientData);
+    patient.updated = Date.now();
+  } else {
+    patient = new Patient(incomingPatientData);
+  }
+
+  return await patient.save();
 };
 
 export default {
