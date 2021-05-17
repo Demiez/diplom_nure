@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { NavigationMenu, HomePage } from '.';
 import Signin from '../modules/module.auth/views/Signin';
