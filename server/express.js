@@ -51,12 +51,12 @@ app.use(
       winston.format.json()
     ),
     meta: true,
-    msg: 'HTTP {{req.method}} {{req.url}}', // optional: customize the default logging message. E.g. "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}"
-    expressFormat: true, // Use the default Express/morgan request formatting. Enabling this will override any msg if true. Will only output colors with colorize set to true
-    colorize: false, // Color the text and status code, using the Express/morgan color palette (text: gray, status: default green, 3XX cyan, 4XX yellow, 5XX red).
+    msg: 'HTTP {{req.method}} {{req.url}}', // опціонально: кастомізувати повідомлення логування.
+    expressFormat: true, // Використати формат запитів Express/morgan за замовчуванням.
+    colorize: false, // Додавання кольорів до тексту повідомлення та статус кодів, використовуючи кольорову палітру Express/morgan
     ignoreRoute: function (req, res) {
       return false;
-    }, // optional: allows to skip some log messages based on request and/or response
+    }, // опціонально: дозволяє пропустити деякі повідомлення для логування
   })
 );
 
