@@ -11,10 +11,9 @@ import {
   TextField,
   Typography,
   Avatar,
-  Icon,
   IconButton,
 } from '@material-ui/core';
-import { NoEncryptionTwoTone, PhotoCamera } from '@material-ui/icons';
+import { PhotoCamera } from '@material-ui/icons';
 import { create } from '../controllers/record.controller';
 import { auth } from '../../module.auth/controllers/auth.controller';
 
