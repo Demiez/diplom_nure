@@ -18,6 +18,7 @@ import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { MainRouter } from './../client/core';
 
+import { extendTimeoutMiddleware } from './utils/extendTimeoutMiddleware';
 import { ServerStyleSheets, ThemeProvider } from '@material-ui/styles';
 import theme from './../client/assets/styles/theme';
 //кінець
@@ -30,6 +31,9 @@ const app = express();
 
 //!!! закоментити перед білдом в продакшен
 // devBundle.compile(app);
+
+// динамічно розширюємо таймаут для хмарної платформи Heroku
+app.use(extendTimeoutMiddleware);
 
 // парсинг body params та додавання їх до req.body
 app.use(bodyParser.json());
