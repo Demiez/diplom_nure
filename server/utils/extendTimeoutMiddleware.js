@@ -33,15 +33,15 @@ export const extendTimeoutMiddleware = (req, res, next) => {
     setTimeout(() => {
       // Якщо відповідть ще не закінчилася та дані не були відправлені...
       if (!isFinished && !isDataSent) {
-        // Виконуємо запис хедерів, якщо вони ще не були записані
+        // Виконуємо перевірку/запис хедерів, якщо вони ще не були записані
         if (!res.headersSent) {
-          res.writeHead(202);
+          // res.writeHead(202);
+
+          res.write(space);
+
+          // Очикуємо ще 15 секунд
+          waitAndSend();
         }
-
-        res.write(space);
-
-        // Очикуємо ще 15 секунд
-        waitAndSend();
       }
     }, 15000);
   };
